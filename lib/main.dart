@@ -1,5 +1,5 @@
-import 'package:dersornekleri/widgets/tabletTasarim.dart';
-import 'package:dersornekleri/widgets/telefonTasarim.dart';
+//import 'package:dersornekleri/widgets/tabletTasarim.dart';
+//import 'package:dersornekleri/widgets/telefonTasarim.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -34,12 +34,24 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+
+    var ekranBilgisi = MediaQuery.of(context);
+    final ekranYukseklik = ekranBilgisi.size.height;
+    final ekranGenisligi = ekranBilgisi.size.width;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(""),
       ),
-       body: LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints){
+       body:
+        Column(
+          children: [
+            Padding(padding: EdgeInsets.only(top: ekranYukseklik / 5),),
+            Container(width: ekranGenisligi/3, height: ekranYukseklik/2, color: Colors.red,),
+          ],
+        ),
+       /*LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints){
 
          if(constraints.maxWidth < 600){
             return TelefonTasarim();
@@ -48,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
             return TabletTasarim();
          }
        }),
-
+     */
     );
   }
 }
